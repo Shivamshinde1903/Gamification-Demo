@@ -233,6 +233,14 @@ fetch("https://game-dev-plus.onrender.com/questions", {
                         // The element does not exist
                         console.log('The element does not exist.');
                     }
+                    for (let j = 0; j<count; j++){
+                        if (ansarray[j]!=""){
+                            console.log(j+1);
+                            var button_css = document.getElementById(`question${j+1}`);
+                            button_css.style.backgroundColor = "#3e8e41";
+                        }
+                    }
+
                 })
             })
             buttonContainer.appendChild(button);
