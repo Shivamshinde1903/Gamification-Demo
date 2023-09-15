@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Image MCQ Options</title>
+    <style>
+        /* Style for MCQ options */
+        body {
+            padding: 0 20px; /* Add padding to the left and right of the screen */
+            background-color: #fff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #fff;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #000;
+            vertical-align: middle;
+        }
+
+        .mcq-option label {
+            display: block;
+            width: 40px; /* Adjust the size as needed */
+            height: 40px; /* Adjust the size as needed */
+            background-color: #fff;
+            border: 2px solid #000;
+            cursor: pointer;
+            position: relative; /* Added position relative */
+        }
+
+        .mcq-option input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        img {
+            max-width: 80%;
+            max-height: 100%;
+            margin-left: 10px; /* Add space between checkbox and question */
+        }
+
+        .mcq-option input[type="checkbox"]:checked + label::before {
+            content: "✔"; /* Use a checkmark or another symbol as needed */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px; /* Adjust the size as needed */
+            color: #000;
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;"><img src="teacher_images/sanch-1.jpg" alt="sanch-1"; style="width: 200px; height: 100px;"></h1>
+    <h4 style="font-size: 22px;">सरावा साठी प्रश्न निवडा :</h4>
+
+    <!-- MCQ options in a table with two columns -->
+    <form id="xyz">
+
+        <table>
+            <tr>
+            <td>
+                <div class="mcq-option">
+                    <input type="checkbox" name="mcq" id="1_1">
+                    <label for="1_1"></label>
+                </div>
+            </td>
+            <td>
+                <img src="teacher_images/question_1.jpg" alt="Option 1 ">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="mcq-option">
+                    <input type="checkbox" name="mcq" id="1_2">
+                    <label for="1_2"></label>
+                </div>
+            </td>
+            <td>
+                <img src="teacher_images/question_2.jpg" alt="Option 2">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="mcq-option">
+                    <input type="checkbox" name="mcq" id="1_3">
+                    <label for="1_3"></label>
+                </div>
+            </td>
+            <td>
+                <img src="teacher_images/question_3.jpg" alt="Option 3">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="mcq-option">
+                    <input type="checkbox" name="mcq" id="1_4">
+                    <label for="1_4"></label>
+                </div>
+            </td>
+            <td>
+                <img src="teacher_images/question_4.jpg" alt="Option 4">
+            </td>
+        </tr>
+
+        <!-- create a submit button -->
+        <tr style="text-align: center;">
+            <td colspan="2">
+                <button type="submit" style="width: 100px; height: 35px; font-size: 25px; background-color: rgb(242, 174, 208); border: 2px solid rgb(227, 29, 128);">नोंद करा </button>
+            </td>
+        </tr>
+    </form>
+    </table>
+    <!-- JavaScript to handle the selected options -->
+    <script>
+        const options = document.querySelectorAll('.mcq-option input[type="checkbox"]');
+        
+        options.forEach(option => {
+            option.addEventListener('change', () => {
+                const selectedOptions = document.querySelectorAll('.mcq-option input[type="checkbox"]:checked');
+                if (selectedOptions.length > 0) {
+                    const selectedOptionIds = Array.from(selectedOptions).map(option => option.id);
+                    console.log(`You selected options: ${selectedOptionIds.join(', ')}`);
+                }
+            });
+        });
+
+        // JavaScript code to handle form submission and redirection
+        document.getElementById("xyz").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let headersList = {
+                "Accept": "*/*",
+                "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+                "Content-Type": "application/json"
+            }
+
+            // generate body content from selected options in the format: {index: id, index: id, ...}
+            let bodyContent = {};
+            const selectedOptions = document.querySelectorAll('.mcq-option input[type="checkbox"]:checked');
+            if (selectedOptions.length > 0) {
+                const selectedOptionIds = Array.from(selectedOptions).map(option => option.id);
+                selectedOptionIds.forEach((id, index) => {
+                    bodyContent[index] = id;
+                });
+            }
+
+            console.log(bodyContent);
+            // send POST request to the server
+            fetch("https://game-dev-plus.onrender.com/questions/batch", {
+                method: "POST",
+                headers: headersList,
+                body: JSON.stringify(bodyContent)
+            }).then(response => {
+                if (response.status == 200) {
+                    console.log("Success");
+                    window.location.href = "auto.html";
+                } else {
+                    console.log("Failure");
+                }
+            });
+
+            
+        });
+
+        // new code
+//         const options = document.querySelectorAll('.mcq-option input[type="checkbox"]');
+
+// options.forEach(option => {
+//     option.addEventListener('change', () => {
+//         const selectedOptions = document.querySelectorAll('.mcq-option input[type="checkbox"]:checked');
+//         if (selectedOptions.length > 0) {
+//             const selectedOptionIds = Array.from(selectedOptions).map(option => option.id);
+//             console.log(`You selected options: ${selectedOptionIds.join(', ')}`);
+//         }
+//     });
+// });
+
+// // JavaScript code to handle form submission and redirection
+// document.getElementById("xyz").addEventListener("submit", function(event) {
+//     event.preventDefault();
+
+//     // Step 1: Clear existing data
+//     fetch("https://game-dev-plus.onrender.com/questions/clear", {
+//         method: "DELETE",
+//         headers: {
+//             "Accept": "*/*",
+//             "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+//         }
+//     }).then(response => {
+//         if (response.status == 200) {
+//             // Step 2: Proceed to send new data
+//             sendNewData();
+//         } else {
+//             console.log("Failed to clear existing data");
+//         }
+//     });
+
+//     function sendNewData() {
+//         let headersList = {
+//             "Accept": "*/*",
+//             "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+//             "Content-Type": "application/json"
+//         }
+
+//         // generate body content from selected options in the format: {index: id, index: id, ...}
+//         let bodyContent = {};
+//         const selectedOptions = document.querySelectorAll('.mcq-option input[type="checkbox"]:checked');
+//         if (selectedOptions.length > 0) {
+//             const selectedOptionIds = Array.from(selectedOptions).map(option => option.id);
+//             selectedOptionIds.forEach((id, index) => {
+//                 bodyContent[index] = id;
+//             });
+//         }
+
+//         console.log(bodyContent);
+//         // send POST request to the server to add new data
+//         fetch("https://game-dev-plus.onrender.com/questions/batch", {
+//             method: "POST",
+//             headers: headersList,
+//             body: JSON.stringify(bodyContent)
+//         }).then(response => {
+//             if (response.status == 200) {
+//                 console.log("Success");
+//             } else {
+//                 console.log("Failure");
+//             }
+//         });
+
+//         //window.location.href = "auto.html";
+//     }
+// });
+    </script>
+</body>
+</html>

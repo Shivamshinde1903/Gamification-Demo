@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="styles.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>सराव परीक्षा-1</title>
+    <style>
+        /* Your CSS styles here */
+    </style>
+</head>
+<div id="blurBackground" class="blur-background"></div>
+
+<!-- The popup div -->
+<div id="popup" class="popup">
+    <h2>Your Test Score</h2>
+    <!-- Add score information here -->
+    <p id="score">Score: 90%</p>
+    <p id="correct">Correct Answers: 18</p>
+    <p id="incorrect">Incorrect Answers: 2</p>
+    <p id="unattempted">Unattempted Questions: 0</p>
+    <button id="closePopupButton">Close</button>
+</div>
+
+<body>
+    <header>
+        <h1><div id="timer">Time Remaining: 00:00</div></h1>
+    </header>
+    <div class="container" id="cont" style="position: absolute; top: 88px;">
+        <div class="navigation-bar" id="autobtn">
+            <!-- <h2 class='chapter-number'> भाग 1</h2> -->
+            
+
+            <!-- Buttons are added here -->
+            <!-- <div id="buttonContainer"></div> -->
+
+            <!-- <button class="my-button" id="question11">समाप्त करा</button><br> -->
+        </div>
+        <div class="black-bg" id="board">
+            <br>
+            <br>
+            <button class='button nonod-kara' id='tapasa'>नोंद करा</button>
+        </div>
+    </div>
+    <main>
+    </main>
+    <script type="module" src="saravsanchjs.js"></script>
+
+    <!-- <script>
+        // JavaScript code to add buttons with unique IDs
+        const buttonContainer = document.getElementById("autobtn");
+
+        function addButtons() {
+            const numberOfButtons = prompt("Enter the number of buttons to add:");
+
+            for (let i = 1; i <= numberOfButtons; i++) {
+                const button = document.createElement("button");
+                button.className = "my-button";
+                button.id = `question${i}`;
+                button.textContent = `प्रश्न ${i}`;
+                buttonContainer.appendChild(button);
+                buttonContainer.appendChild(document.createElement("br"));
+                if (i==numberOfButtons) {
+                    const button = document.createElement("button");
+                    button.className = "my-button";
+                    button.id = `question01`;
+                    button.textContent = `समाप्त करा`;
+                    buttonContainer.appendChild(button);
+                    buttonContainer.appendChild(document.createElement("br"));
+
+                }
+            }
+            
+        }
+
+        //addButtons();
+    </script> -->
+</body>
+</html>
