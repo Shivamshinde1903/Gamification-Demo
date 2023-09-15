@@ -1,0 +1,356 @@
+body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #7fd122;
+    color: #000000;
+    padding: 20px;
+    text-align: center;
+    width: 100vw;
+}
+
+h1 {
+    margin: 0;
+}
+
+main {
+    margin: 20px;
+    width: 200px;
+}
+
+section {
+    margin-bottom: 18px;
+}
+
+h2 {
+    color: #333333;
+    font-size: 24px;
+    margin-bottom: 16px;
+    margin-top: 0px;
+}
+
+h3 {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 16px;
+    margin-top: 0px;
+}
+
+ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+li::before {
+    content: "\2022";
+    display: inline-block;
+    margin-right: 10px;
+    position: relative;
+    top: 2px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    margin-top: -26px;
+}
+
+.container {
+    width: 100vw;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+container-header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    height: 88px;
+    width: 771.35px;
+}
+
+label{
+    color: #fff;
+}
+
+.my-button {
+background-color: #666966;
+border: none;
+color: white;
+width: 160px;
+height: 40px;
+padding: 10px 20px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 2px -25px;
+cursor: pointer;
+}
+.my-button:hover {
+background-color: #3e8e41;
+}
+#buttonContainer {
+    margin: 0px 10px 0pc 10px;
+}
+
+table {
+border-collapse: collapse;
+border: 2px solid #ddd;
+/* width: 90%; */
+background-color: #f2f2f2;
+font-family: Arial, sans-serif;
+font-size: 14px;
+margin: 20px 0;
+padding: 5px;
+}
+
+th, td {
+text-align: left;
+padding: 8px;
+}
+
+th {
+background-color: #333;
+color: #fff;
+}
+.black-bg{
+background-color: #000;
+width: 100vw;
+/* height: 90vh; */
+min-height: 100vh;
+/* border-style: outset; */
+/* border-color:#FAD7A0; */
+border: 30px solid transparent;
+border-image: url('./images/wood-texture.jpg') 30 round;
+/* border: 30px solid #FAD7A0; */
+}
+.navigation-bar{
+/* width: 10vw; */
+width: fit-content;
+margin: 0px 10px 0pc 10px;
+display: flex;
+flex-direction: column;
+align-items: center;
+height: 95vh;
+overflow: scroll;
+width: 15vw;
+}
+.footer{
+margin-top: 99vh;
+}
+.exam-table{
+    font-size: 25px;
+    margin:20px 0 auto;
+    margin-left: 70px;
+    height: 400px;
+    max-width: 70vw;
+    margin: auto;
+}
+.nonod-kara{
+    /* position: absolute;  */
+    /* margin-left: 13vw; */
+    width: 20%;
+    font-size: 20px;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    /* width: 100px ; 
+    height: 35px; 
+    font-size:25px */
+}
+/* mcq question css */
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.question {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+/* Style the MCQ options */
+.options {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+}
+
+.option input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* Center the MCQ options horizontally */
+.options li {
+    text-align: left;
+}
+label {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    max-height: 100%;
+
+}
+
+label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 25px;
+    height: 25px;
+    border: 2px solid #007bff;
+    border-radius: 50%;
+}
+
+input[type="radio"] {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+input[type="radio"]:checked + label::before {
+    background-color: #f0f2f5;
+    border: 2px solid #007bff;
+}
+
+/* input[type="radio"]:checked + label {
+    background-color: #ccc; 
+    background-size: 200px;
+    
+} */
+
+/* css for image question */
+/* Style the question container */
+.question-container {
+    max-width: 100%; /* Ensure the container does not exceed the width of the main container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px; /* Add margin for spacing */
+}
+
+/* Style the image inside the question container */
+.question-container img {
+    max-width: 100%; /* Make sure the image scales within the container */
+    height: auto; /* Maintain the image's aspect ratio */
+    max-height: 80vh; /* Limit the image height to 80% of the viewport height */
+}
+.blur-background {
+    filter: blur(5px); /* Adjust the blur intensity as needed */
+    pointer-events: none; /* Prevent interactions with the blurred background */
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.popup h2 {
+    margin-top: 0;
+}
+
+
+/* responsive css */
+@media all and (max-width:768px) {
+	.container{
+		flex-direction: column !important;
+	}
+    .navigation-bar{
+        height: 100px;
+        width: 105vw;
+        flex-direction: row;
+        overflow-x: scroll;
+    }
+    /* automated css */
+    #buttonContainer{
+        height: 100px;
+        width: 105vw;
+        flex-direction: row;
+        overflow-x: scroll;
+    }
+    .black-bg{
+        width: calc(100vw - 20px) !important;
+    }
+    .chapter-number{
+        width: 250px !important;
+    }
+    .my-button{
+        margin: 0px 30px;
+        width: 200px;
+        padding: 10px 30px;
+        height: 70px;
+    }
+    .footer{
+        margin-top: 109vh;
+        bottom: 0px;
+        width: 100vw;
+        padding-left: 30px;
+    }
+    .exam-table{
+        font-size: 15px;
+        margin:0px 0 auto;
+        margin-left: 70px;
+        height: 400px;
+        max-width: 300px;
+        margin: auto;
+    }
+}
+@media all and (max-width:376px) {
+    .footer{
+       margin-top: 112vh;
+    } 
+}
+@media all and (max-height:450px) {
+    .exam-table{
+       height: 200px;
+    } 
+    .nonod-kara{
+        width: 200px;
+    }
+    /* .footer{
+        margin-top: 130vh;
+    } */
+}
+/* Media query for landscape orientation */
+@media screen and (min-width: 768px) and (orientation: landscape) {
+    .question-container img {
+        max-height: 60vh; /* Adjust the image height for landscape orientation */
+    }
+
+    /* Adjust MCQ options for landscape orientation */
+    .options {
+        margin-top: 10px; /* Reduce the margin between the image and options */
+        max-width: 80%; /* Limit the width of MCQ options in landscape orientation */
+        max-height: 80%;
+    }    
+}
