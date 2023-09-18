@@ -168,6 +168,7 @@ body = JSON.stringify({
                     }).then(response => response.text()).then(data => {
                         console.log(data);
                         // Check if the user already exists
+                        localStorage.setItem("id", roll_value + class_value + division_value + school_value);
                         window.location.href = "auto.html";
                     }).catch(err => {
                         console.error(err);
