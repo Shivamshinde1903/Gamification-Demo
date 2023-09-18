@@ -1,5 +1,8 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,111 +10,188 @@
     <!-- <link rel="stylesheet" href="styles.css"> -->
     <style>
         body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
-    background-color: #f2f2f2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
+            margin: 0;
+            padding: 0;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+                'Lucida Sans', Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
-.login-container {
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    padding: 20px;
-    text-align: center;
-    max-width: 400px;
-    width: 100%;
-}
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
 
-.login-form {
-    display: flex;
-    flex-direction: column;
-}
+        .login-form {
+            display: flex;
+            flex-direction: column;
+        }
 
-.login-form label {
-    font-size: 18px;
-    text-align: left;
-    margin-bottom: 5px;
-}
+        .login-form label {
+            font-size: 18px;
+            text-align: left;
+            margin-bottom: 5px;
+        }
 
-.login-form input[type="text"],
-.login-form input[type="tel"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
+        .login-form input[type="text"],
+        .login-form input[type="tel"],
+        .login-form input[type="number"],
+        .login-form select[type="text"],
+        .login-form select[type="number"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
 
-.login-form small {
-    font-size: 12px;
-    color: #888;
-    margin-top: -5px;
-}
+        .login-form small {
+            font-size: 12px;
+            color: #888;
+            margin-top: -5px;
+        }
 
-.login-form button[type="submit"] {
-    background-color: #f5cd03;
-    color: #0c0d0d;
-    font-size: 16px;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+        .login-form button[type="submit"] {
+            background-color: #f5cd03;
+            color: #0c0d0d;
+            font-size: 16px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-.login-form button[type="submit"]:hover {
-    background-color: #e0b500;
-}
-
+        .login-form button[type="submit"]:hover {
+            background-color: #e0b500;
+        }
     </style>
 </head>
+
 <body>
     <div class="login-container">
-        <h1>Student Login</h1>
+        <h1>Login Portal</h1>
         <form class="login-form" id="xyz">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            
+
             <label for="roll">Roll Number:</label>
             <input type="text" id="roll" name="roll" required>
-            
-            <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
-            <small>Enter a 10-digit phone number</small>
+
 
             <!-- school name -->
             <label for="school">School Name:</label>
-            <input type="text" id="school" name="school" required>
+            <select type="text" id="school" name="school" required>
+                <option value="VIT School">VIT School</option>
+                <option value="other">other</option>
+            </select>
 
             <!-- class should be between 1 and 12 -->
             <label for="class">Class:</label>
-            <input type="number" id="class" name="class" min="5" max="10" required>
-            
+            <select type="number" id="class" name="class" required>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+
+            </select>
+
+            <!-- Division dropdown -->
+            <label for="division">Division:</label>
+            <select type="text" id="division" name="division" required>
+                <option value="A">अ</option>
+                <option value="B">ब</option>
+                <option value="C">क</option>
+                <option value="D">ड</option>
+            </select>
+
             <button type="submit">Login</button>
+
+            <p>Not a member? <a href="register.html">Register</a></p>
         </form>
     </div>
-
     <script>
-        // JavaScript code to handle form submission and redirection
-        document.getElementById("xyz").addEventListener("submit", function(event) {
+        document.getElementById("xyz").addEventListener("submit", function (event) {
             // Prevent the default form submission behavior
             event.preventDefault();
 
             // save the data in local storage
-            localStorage.setItem("name", document.getElementById("name").value);
-            localStorage.setItem("roll", document.getElementById("roll").value);
-            localStorage.setItem("phone", document.getElementById("phone").value);
-            localStorage.setItem("school", document.getElementById("school").value);
-            localStorage.setItem("class", document.getElementById("class").value);
+            var x = 0;
+            
+            var roll_value = document.getElementById("roll").value;
+            var school_value = document.getElementById("school").value;
+            var class_value = document.getElementById("class").value;
+            var division_value = document.getElementById("division").value;
+
+            body = JSON.stringify({
+                "id": roll_value + class_value + division_value + school_value,
+            })
+            let headersList = {
+                "Accept": "*/*",
+                "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+                "Content-Type": "application/json"
+            }
+
+            fetch("https://game-dev-plus.onrender.com/login", {
+                method: "POST",
+                body: body,
+                headers: headersList
+            }).then(response => {
+                if (response.status!=200){
+                    alert("user doesn't exist")
+                    x = 1;
+                }
+                else{
+                    return response.text();
+                    x = 0;
+                }
+            
+            }).then(data => {
+                console.log(data);
+                // save the id in local storage
+                localStorage.setItem("id", roll_value + class_value + division_value + school_value);
+                //window.location.href = "auto.html";
+                if (x==0){
+                    localStorage.setItem("id", roll_value + class_value + division_value + school_value);
+                    window.location.href = "auto.html";
+                }
+                
+            }).catch(err => {
+                console.error(err);
+            }
+            );
+
+
 
             // Redirect to the "xyz" page
-            window.location.href = "mcqui3.html"; // Change the filename if needed
+            // Change the filename if needed
         });
+
     </script>
 </body>
+
 </html>
+
+
+
+<!-- - register
+    - full Name
+    - school Name -L
+    - roll no -L
+    - class -L
+    - division -L
+    - phone number
+    - Gender
+
+- test [
+    - tests
+    ] -->
