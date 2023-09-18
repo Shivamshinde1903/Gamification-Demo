@@ -112,7 +112,7 @@
                 <option value="8">8</option>
                 <option value="9">9</option>
                 <option value="10">10</option>
-                <option value="other">other</option>
+                <option value="11">11</option>
 
             </select>
 
@@ -127,7 +127,7 @@
             
             <button type="submit">Register</button>
 
-            
+            <p>Already a member? <a href="index.html">Register</a></p>
         </form>
     </div>
     <script>
@@ -168,9 +168,10 @@ body = JSON.stringify({
                     }).then(response => response.text()).then(data => {
                         console.log(data);
                         // Check if the user already exists
-                        //window.location.href = "mcqui3.html";
+                        window.location.href = "auto.html";
                     }).catch(err => {
                         console.error(err);
+                        console.log("User Already Exists");
                     }
                     );
 

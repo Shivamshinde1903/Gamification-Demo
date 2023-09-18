@@ -7,15 +7,20 @@ let headersList = {
     "User-Agent": "Thunder Client (https://www.thunderclient.com)",
     "Content-Type": "application/json"
 }
-var myJson = {};
-fetch("https://game-dev-plus.onrender.com/questions", {
-    method: "GET",
-    headers: headersList
-}).then(response => response.text()).then(data => {
-    myJson = data;
-    // myJson = convert all the keys from string to int
-    myJson = JSON.parse(myJson);
-    console.log(myJson);
+var myJson = {
+    "1": "1_1",
+    "2": "1_2",
+    "3": "1_3",
+    "4": "1_4"
+}
+// fetch("https://game-dev-plus.onrender.com/questions", {
+//     method: "GET",
+//     headers: headersList
+// }).then(response => response.text()).then(data => {
+//     myJson = data;
+//     // myJson = convert all the keys from string to int
+//     myJson = JSON.parse(myJson);
+//     console.log(myJson);
 
     function getCurrentDateTime() {
         const currentDate = new Date();
@@ -275,25 +280,20 @@ fetch("https://game-dev-plus.onrender.com/questions", {
 
                     var questionContent = [];
                     for (let i = 0; i < count; i++) {
-                        var tempCorrect = false;
-                        var tempNot = false;
-                        var tempUnattempted = false;
+                        var tempCorrect = "";
                         if (ansarray[i] == answersarray[i]) {
-                            tempCorrect = true;
+                            tempCorrect = "correct";
                         }
                         else if (ansarray[i] == "") {
-                            tempUnattempted = true;
+                            tempCorrect = "unattempted";
                         }
                         else {
-                            tempNot = true;
+                            tempCorrect = "not"
                         }
                         questionContent.push({
                             "id": i + 1,
-                            "question": qarray[i],
-                            "correct": tempCorrect,
-                            "not": tempNot,
-                            "unattempted": tempUnattempted,
-                            "time": count_time[i]
+                            "status": tempCorrect,
+                            "time_taken": count_time[i]
                         });
                     }
 
@@ -301,25 +301,17 @@ fetch("https://game-dev-plus.onrender.com/questions", {
 
 
                     // get name, roll, phone, school, class from local storage
-                    let name = localStorage.getItem("name");
-                    let roll = localStorage.getItem("roll");
-                    let phone = localStorage.getItem("phone");
-                    let school = localStorage.getItem("school");
-                    let class_ = localStorage.getItem("class");
+                    let id = localStorage.getItem("id");
 
                     let bodyContent = JSON.stringify({
-                        "name": name,
-                        "rollNumber": roll,
-                        "school_name": school,
-                        "phone_number": phone,
+                        "student_id": id,
                         "start_time" : starttime,
                         "end_time" : endtime,
-                        "class": class_,
-                        "questions": questionContent
+                        "test_questions_data": questionContent
                     }
                     );
 
-                    fetch("https://game-dev-plus.onrender.com/data", {
+                    fetch("https://game-dev-plus.onrender.com/addTest", {
                         method: "POST",
                         body: bodyContent,
                         headers: headersList
@@ -389,25 +381,20 @@ fetch("https://game-dev-plus.onrender.com/questions", {
 
             var questionContent = [];
             for (let i = 0; i < count; i++) {
-                var tempCorrect = false;
-                var tempNot = false;
-                var tempUnattempted = false;
+                var tempCorrect = "";
                 if (ansarray[i] == answersarray[i]) {
-                    tempCorrect = true;
+                    tempCorrect = "correct";
                 }
                 else if (ansarray[i] == "") {
-                    tempUnattempted = true;
+                    tempCorrect = "unattempted";
                 }
                 else {
-                    tempNot = true;
+                    tempCorrect = "not"
                 }
                 questionContent.push({
                     "id": i + 1,
-                    "question": qarray[i],
-                    "correct": tempCorrect,
-                    "not": tempNot,
-                    "unattempted": tempUnattempted,
-                    "time": count_time[i]
+                    "status": tempCorrect,
+                    "time_taken": count_time[i]
                 });
             }
 
@@ -415,25 +402,17 @@ fetch("https://game-dev-plus.onrender.com/questions", {
 
 
             // get name, roll, phone, school, class from local storage
-            let name = localStorage.getItem("name");
-            let roll = localStorage.getItem("roll");
-            let phone = localStorage.getItem("phone");
-            let school = localStorage.getItem("school");
-            let class_ = localStorage.getItem("class");
+            let id = localStorage.getItem("id");
 
             let bodyContent = JSON.stringify({
-                "name": name,
-                "rollNumber": roll,
-                "school_name": school,
-                "phone_number": phone,
+                "student_id": id,
                 "start_time" : starttime,
                 "end_time" : endtime,
-                "class": class_,
-                "questions": questionContent
+                "test_questions_data": questionContent
             }
             );
 
-            fetch("https://game-dev-plus.onrender.com/data", {
+            fetch("https://game-dev-plus.onrender.com/addTest", {
                 method: "POST",
                 body: bodyContent,
                 headers: headersList
@@ -443,6 +422,8 @@ fetch("https://game-dev-plus.onrender.com/questions", {
                 console.error(err);
             }
             );
+
+            
 
         } else {
             timeLimitInSeconds--;
@@ -461,6 +442,6 @@ fetch("https://game-dev-plus.onrender.com/questions", {
 
 
 
-}).catch(err => {
-    console.error(err);
-});
+// }).catch(err => {
+//     console.error(err);
+// });
