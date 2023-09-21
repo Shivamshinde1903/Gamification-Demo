@@ -328,6 +328,7 @@ var myJson = {
                     );
 
                     fetch("https://game-dev-plus.onrender.com/addTest", {
+                        mode: 'no-cors',
                         method: "POST",
                         body: bodyContent,
                         headers: headersList
@@ -430,6 +431,7 @@ var myJson = {
             );
 
             fetch("https://game-dev-plus.onrender.com/addTest", {
+                mode: 'no-cors',
                 method: "POST",
                 body: bodyContent,
                 headers: headersList

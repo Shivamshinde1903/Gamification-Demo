@@ -189,6 +189,7 @@ body = JSON.stringify({
                     }
 
             fetch("https://game-dev-plus.onrender.com/register", {
+                        mode: 'no-cors',
                         method: "POST",
                         body: body,
                         headers: headersList
