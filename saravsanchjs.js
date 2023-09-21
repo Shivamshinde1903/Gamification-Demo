@@ -164,7 +164,7 @@ var myJson = {
             button.addEventListener("click", function () {
                 startTimes[i - 1] = new Date(); // Record the start time for this question
                 var element = document.getElementById("board");
-                element.innerHTML = qarray[i - 1] + `<br><button class='button nonod-kara' id='tapasa${i}' >नोंद करा व पुढे चला</button>`;
+                element.innerHTML = qarray[i - 1] + `<br><button class='button nonod-kara' id='tapasa${i}' >नोंद करा</button>`;
 
                 const selectedOptionId = localStorage.getItem(`selectedOption${i}`);
     
@@ -256,11 +256,11 @@ var myJson = {
                             button_css.style.backgroundColor = "#3e8e41";
                         }
                     }
-                    if (i<(numberOfButtons-1)){
-                        var element = document.getElementById("board");
-                        element.innerHTML = qarray[i] + `<br><button class='button nonod-kara' id='tapasa${i+1}' >नोंद करा व पुढे चला</button>`;
+                    // if (i<(numberOfButtons-1)){
+                    //     var element = document.getElementById("board");
+                    //     element.innerHTML = qarray[i] + `<br><button class='button nonod-kara' id='tapasa${i+1}' >नोंद करा व पुढे चला</button>`;
         
-                    }
+                    // }
 
                 })
             })
