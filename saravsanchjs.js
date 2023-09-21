@@ -333,6 +333,7 @@ var myJson = {
                         headers: headersList
                     }).then(response => response.text()).then(data => {
                         console.log(data);
+                        localStorage.clear();
                     }).catch(err => {
                         console.error(err);
                     }
@@ -434,6 +435,7 @@ var myJson = {
                 headers: headersList
             }).then(response => response.text()).then(data => {
                 console.log(data);
+                localStorage.clear();
             }).catch(err => {
                 console.error(err);
             }
