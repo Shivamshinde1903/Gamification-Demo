@@ -164,7 +164,17 @@ var myJson = {
             button.addEventListener("click", function () {
                 startTimes[i - 1] = new Date(); // Record the start time for this question
                 var element = document.getElementById("board");
-                element.innerHTML = qarray[i - 1] + `<br><button class='button nonod-kara' id='tapasa${i}' >नोंद करा</button>`;
+                element.innerHTML = qarray[i - 1] + `<br><button class='button nonod-kara' id='tapasa${i}' >नोंद करा व पुढे चला</button>`;
+
+                const selectedOptionId = localStorage.getItem(`selectedOption${i}`);
+    
+                if (selectedOptionId) {
+                    const selectedOption = document.getElementById(selectedOptionId);
+        
+                    if (selectedOption) {
+                        selectedOption.checked = true;
+                    }
+                }
                 const check = document.getElementById(`tapasa${i}`)
                 check.addEventListener("click", function () {
                     //ansarray[i-1] = result.toString();
@@ -212,6 +222,7 @@ var myJson = {
                         for (const radioButton of radioButtons) {
                             if (radioButton.checked) {
                                 selectedValue = radioButton.value;
+                                localStorage.setItem(`selectedOption${i}`, radioButton.id);
 
                                 break; // Stop iterating once a selected button is found
                             }
@@ -244,6 +255,11 @@ var myJson = {
                             var button_css = document.getElementById(`question${j+1}`);
                             button_css.style.backgroundColor = "#3e8e41";
                         }
+                    }
+                    if (i<(numberOfButtons-1)){
+                        var element = document.getElementById("board");
+                        element.innerHTML = qarray[i] + `<br><button class='button nonod-kara' id='tapasa${i+1}' >नोंद करा व पुढे चला</button>`;
+        
                     }
 
                 })
