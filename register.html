@@ -177,7 +177,7 @@ body = JSON.stringify({
         "name":name_value,
         "roll_number":roll_value,
         "school_name":school_value,
-        "class":class_value,
+        "class_":class_value,
         "division":division_value,
         "phone_number":phone_value,
         "gender":gender_value,
@@ -189,7 +189,7 @@ body = JSON.stringify({
                     }
 
             fetch("https://game-dev-plus.onrender.com/register", {
-                        mode: 'no-cors',
+                        //mode: 'no-cors',
                         method: "POST",
                         body: body,
                         headers: headersList
