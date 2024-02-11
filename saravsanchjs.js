@@ -7,12 +7,24 @@ let headersList = {
     "User-Agent": "Thunder Client (https://www.thunderclient.com)",
     "Content-Type": "application/json"
 }
-var myJson = {
-    "1": "1_1",
-    "2": "1_2",
-    "3": "1_3",
-    "4": "1_4"
+if (localStorage.getItem("test_number")=="B"){
+    var myJson = {
+        "1": "27_1",
+        "2": "27_2",
+        "3": "27_3",
+        "4": "27_4",
+        "5": "27_5"
+    }
 }
+else if (localStorage.getItem("test_number")=="A"){
+    var myJson = {
+        "1": "1_1",
+        "2": "1_2",
+        "3": "1_3",
+        "4": "1_4"
+    }
+}
+
 // fetch("https://game-dev-plus.onrender.com/questions", {
 //     method: "GET",
 //     headers: headersList
@@ -83,14 +95,17 @@ var myJson = {
     
         }
         const score_btn = document.getElementById("score");
-        score_btn.innerHTML = `Score: ${score}`;
+        score_btn.innerHTML = `गुण: ${score}`;
         const correct_btn = document.getElementById("correct");
-        correct_btn.innerHTML = `Correct Answers: ${score}`;
+        correct_btn.innerHTML = `बरोबर उत्तरे: ${score}`;
         const incorrect_btn = document.getElementById("incorrect");
-        incorrect_btn.innerHTML = `Incorrect Answers: ${count-score-unattempted}`;
+        incorrect_btn.innerHTML = `चूक उत्तरे: ${count-score-unattempted}`;
         const unattempted_btn = document.getElementById("unattempted");
-        unattempted_btn.innerHTML = `Unattempted Questions: ${unattempted}`;
+        unattempted_btn.innerHTML = `न सोडवलेले प्रश्न: ${unattempted}`;
     
+        const close = document.getElementById("closePopupButton"); 
+        close.style.backgroundColor = "red";
+        close.style.color = "white";
         popup.style.display = "block";
         blurBackground.style.display = "block";
     }
@@ -99,7 +114,6 @@ var myJson = {
     function closePopup() {
         const popup = document.getElementById("popup");
         const blurBackground = document.getElementById("blurBackground");
-    
         popup.style.display = "none";
         blurBackground.style.display = "none";
         window.location.href = "index.html";

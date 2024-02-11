@@ -94,13 +94,13 @@
         <h1>Registration Portal</h1>
         <div class="loading-circle"></div>
         <form class="login-form" id="xyz">
-            <label for="name">Name:</label>
+            <label for="name">Name (नाव):</label>
             <input type="text" id="name" name="name" required >
             
-            <label for="roll">Roll Number:</label>
+            <label for="roll">Roll Number (हजेरी क्र.):</label>
             <input type="text" id="roll" name="roll" required >
             
-            <label for="gender">Gender:</label>
+            <label for="gender">Gender (लिंग):</label>
             <select type="text" id="gender" name="gender" required >
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
@@ -109,20 +109,18 @@
             </select>
 
 
-            <label for="phone">Phone Number:</label>
+            <label for="phone">Phone Number (फोन नंबर):</label>
             <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required >
             <small>Enter a 10-digit phone number</small>
 
             <!-- school name -->
-            <label for="school">School Name:</label>
+            <label for="school">School Name (शाळेचे नाव):</label>
             <select type="text" id="school" name="school" required >
-                <option value="VIT School">VIT School</option>
-                <option value="Vidya Vikas Vidyalaya">Vidya Vikas Vidyalaya</option>
-                <option value="other">other</option>
+                <option value="Vidya Vikas Vidyalaya">विद्या विकास विद्यालय</option>
             </select>
 
             <!-- class should be between 1 and 12 -->
-            <label for="class">Class:</label>
+            <label for="class">Class (इयत्ता):</label>
             <select type="number" id="class" name="class" required >
                 <!-- <option value="5">5</option> -->
                 <option value="6">6</option>
@@ -139,7 +137,7 @@
             </select>
 
             <!-- Division dropdown -->
-            <label for="division">Division:</label>
+            <label for="division">Division (तुकडी):</label>
             <select type="text" id="division" name="division" required >
                 <option value="A">अ</option>
                 <option value="B">ब</option>
@@ -149,6 +147,13 @@
                 <option value="F">फ</option>
                 <option value="G">ग</option>
                 <option value="H">ह</option>
+            </select>
+
+            <label for="test">Select Test (परीक्षा निवडा):</label>
+            <select type="text" id="test" name="test" required>
+                <option value="A">विभाग पहिला परीक्षा क्र. 1</option>
+                <option value="B">विभाग दुसरा परीक्षा क्र. 1</option>
+
             </select>
             
             <button type="submit">Register</button>
@@ -174,6 +179,7 @@
             var class_value= document.getElementById("class").value;
             var division_value= document.getElementById("division").value;
             var gender_value= document.getElementById("gender").value;
+            var test_value = document.getElementById("test").value;
             
 body = JSON.stringify({
         "id":roll_value+class_value+division_value+school_value,
@@ -200,6 +206,7 @@ body = JSON.stringify({
                         console.log(data);
                         // Check if the user already exists
                         localStorage.setItem("id", roll_value + class_value + division_value + school_value);
+                        localStorage.setItem("test_number", test_value);
                         window.location.href = "auto.html";
                     }).catch(err => {
                         console.error(err);
