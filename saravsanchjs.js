@@ -18,7 +18,7 @@ if (localStorage.getItem("test_number")=="B"){
 }
 else if (localStorage.getItem("test_number")=="A"){
     var myJson = {
-        "1": "1_1",
+        "1": "28_1",
         "2": "1_2",
         "3": "1_3",
         "4": "1_4"
@@ -60,6 +60,7 @@ else if (localStorage.getItem("test_number")=="A"){
         //console.log(myJson[i].split('_')[0]);
         //console.log(Object.keys(myJson1[myJson[i].split('_')[0]][myJson[i].split('_')[1]]).length);
         count = count + Object.keys(myJson1[myJson[i].split('_')[0]][myJson[i].split('_')[1]]).length;
+        console.log(count);
     }
     // Function to show the popup
     console.log(count);
