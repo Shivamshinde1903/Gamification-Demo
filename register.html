@@ -98,8 +98,8 @@
             <input type="text" id="name" name="name" required >
             
             <label for="roll">Roll Number (हजेरी क्र.):</label>
-            <input type="text" id="roll" name="roll" required >
-            
+            <input type="text" id="roll" name="roll" maxlength="2" required>
+                        
             <label for="gender">Gender (लिंग):</label>
             <select type="text" id="gender" name="gender" required >
                 <option value="Male">Male</option>
@@ -123,7 +123,7 @@
             <label for="class">Class (इयत्ता):</label>
             <select type="number" id="class" name="class" required >
                 <!-- <option value="5">5</option> -->
-                <option value="6">6</option>
+                <option value="8">8</option>
                 <!-- <option value="7">7</option>
                 <option value="8">8</option>
                 <option value="9">9</option>
@@ -151,10 +151,14 @@
 
             <label for="test">Select Test (परीक्षा निवडा):</label>
             <select type="text" id="test" name="test" required>
-                <option value="A">विभाग पहिला परीक्षा क्र. 1</option>
-                <option value="B">विभाग दुसरा परीक्षा क्र. 1</option>
+                <option value="A">बहुपदींचा भागाकार - सोपी उदाहरणे</option>
+                <option value="B">बहुपदींचा भागाकार - मध्यम उदाहरणे</option>
+                <option value="C">बहुपदींचा भागाकार - अवघड उदाहरणे</option>
 
             </select>
+
+            <label for="key">Access Key (प्रवेश की):</label>
+            <input type="text" id="key" name="key" required>
             
             <button type="submit">Register</button>
 

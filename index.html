@@ -100,8 +100,8 @@
         <form class="login-form" id="xyz">
 
             <label for="roll">Roll Number (हजेरी क्र.):</label>
-            <input type="text" id="roll" name="roll" required>
-
+            <input type="text" id="roll" name="roll" maxlength="2" required>
+            
 
             <!-- school name -->
             <label for="school">School Name (शाळेचे नाव):</label>
@@ -113,7 +113,7 @@
             <label for="class">Class (इयत्ता):</label>
             <select type="number" id="class" name="class" required>
                 <!-- <option value="5">5</option> -->
-                <option value="6">6</option>
+                <option value="8">8</option>
                 <!-- <option value="7">7</option>
                 <option value="8">8</option>
                 <option value="9">9</option>
@@ -143,10 +143,15 @@
             
             <label for="test">Select Test (परीक्षा निवडा):</label>
             <select type="text" id="test" name="test" required>
-                <option value="A">विभाग पहिला परीक्षा क्र. 1</option>
-                <option value="B">विभाग दुसरा परीक्षा क्र. 1</option>
+                <option value="A">बहुपदींचा भागाकार - सोपी उदाहरणे</option>
+                <option value="B">बहुपदींचा भागाकार - मध्यम उदाहरणे</option>
+                <option value="C">बहुपदींचा भागाकार - अवघड उदाहरणे</option>
 
             </select>
+
+            <label for="key">Access Key (प्रवेश की):</label>
+            <input type="text" id="key" name="key" required>
+
 
             <button type="submit">Login</button>
 
@@ -171,6 +176,14 @@
             var class_value = document.getElementById("class").value;
             var division_value = document.getElementById("division").value;
             var test_value = document.getElementById("test").value;
+            var key_value = document.getElementById("key").value;
+
+            if(key_value!="0000"){
+                alert("Invalid access key");
+                var loadingCircle = document.querySelector(".loading-circle");
+                loadingCircle.style.display = "none";
+                window.location.reload();
+            }
 
             body = JSON.stringify({
                 "id": roll_value + class_value + division_value + school_value,
