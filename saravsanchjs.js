@@ -364,6 +364,7 @@ else if (localStorage.getItem("test_number")=="C"){
                 button.className = "my-button";
                 button.id = `question01`;
                 button.textContent = `समाप्त करा`;
+                button.style.backgroundColor = "red";
                 button.addEventListener("click", function () {
                     endtime = getCurrentDateTime();
                     console.log(starttime);
