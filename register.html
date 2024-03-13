@@ -184,6 +184,15 @@
             var division_value= document.getElementById("division").value;
             var gender_value= document.getElementById("gender").value;
             var test_value = document.getElementById("test").value;
+            var key_value = document.getElementById("key").value;
+
+            if(key_value!="2024"){
+                alert("Invalid access key");
+                var loadingCircle = document.querySelector(".loading-circle");
+                loadingCircle.style.display = "none";
+                window.location.reload();
+            }
+
             
 body = JSON.stringify({
         "id":roll_value+class_value+division_value+school_value,

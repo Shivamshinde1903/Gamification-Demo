@@ -2,6 +2,7 @@
 import myJson1 from './question.json' assert {type: 'json'};
 import myJson2 from './answers.json' assert {type: 'json'};
 
+var gun = 0;
 let headersList = {
     "Accept": "*/*",
     "User-Agent": "Thunder Client (https://www.thunderclient.com)",
@@ -173,6 +174,7 @@ else if (localStorage.getItem("test_number")=="C"){
             }
     
         }
+        gun = score;
         const score_btn = document.getElementById("score");
         score_btn.innerHTML = `गुण: ${score}`;
         const correct_btn = document.getElementById("correct");
@@ -416,7 +418,7 @@ else if (localStorage.getItem("test_number")=="C"){
                     let bodyContent = JSON.stringify({
                         "student_id": id,
                         "start_time" : starttime,
-                        "end_time" : endtime,
+                        "end_time" : endtime+" score:"+gun+" testid:"+localStorage.getItem("test_number"),
                         "test_questions_data": questionContent
                     }
                     );
@@ -459,7 +461,7 @@ else if (localStorage.getItem("test_number")=="C"){
     //set timer
 
     // Set the time limit in seconds (e.g., 10 minutes)
-    var timeLimitInSeconds = 60 * count;
+    var timeLimitInSeconds = 60 * (count+5);
 
 
     // Calculate the initial minutes and seconds
@@ -519,7 +521,7 @@ else if (localStorage.getItem("test_number")=="C"){
             let bodyContent = JSON.stringify({
                 "student_id": id,
                 "start_time" : starttime,
-                "end_time" : endtime,
+                "end_time" : endtime+" score:"+gun+" testid:"+localStorage.getItem("test_number"),
                 "test_questions_data": questionContent
             }
             );
