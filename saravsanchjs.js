@@ -1,10 +1,17 @@
 // import myJson from './qid.json' assert {type: 'json'};	
 //import myJson1 from './question.json' assert {type: 'json'};
 //chanhged
+
+const response1 = await fetch('./question.json');
+const myJson1 = await response1.json();
+
+const response2 = await fetch('./answers.json');
+const myJson2 = await response2.json();
+
 // Dynamic import
-const myJson1 = await import('./question.json', {
-  assert: { type: 'json' }
-});
+// const myJson1 = await import('./question.json', {
+//   assert: { type: 'json' }
+// });
 
 // or for CommonJS
 // import fs from 'fs';
@@ -15,9 +22,9 @@ const myJson1 = await import('./question.json', {
 
 //const myJson2 = JSON.parse(fs.readFileSync('./answers.json', 'utf-8'));
 
-const myJson2 = await import('./answers.json', {
-  assert: { type: 'json' }
-});
+// const myJson2 = await import('./answers.json', {
+//   assert: { type: 'json' }
+// });
 
 var gun = 0;
 let headersList = {
