@@ -1,5 +1,16 @@
 // import myJson from './qid.json' assert {type: 'json'};	
-import myJson1 from './question.json' assert {type: 'json'};
+//import myJson1 from './question.json' assert {type: 'json'};
+//chanhged
+// Dynamic import
+const myJson1 = await import('./question.json', {
+  assert: { type: 'json' }
+});
+
+// or for CommonJS
+import fs from 'fs';
+const myJson1 = JSON.parse(fs.readFileSync('./question.json', 'utf-8'));
+//chanhged
+
 import myJson2 from './answers.json' assert {type: 'json'};
 
 var gun = 0;
